@@ -1,0 +1,44 @@
+{
+    "test": {
+        "species_accuracy_total": 0.8326099706744868,
+        "species_accuracy_per_group": {
+            "Ultra-Rare": 0.36246786632390743,
+            "Minority": 0.7064700285442436,
+            "Neutral": 0.8166295471417966,
+            "Majority": 0.9335895793294896,
+            "Unknown": 0.0
+        },
+        "trait_ap_adipose_fin": 0.9865462552162363,
+        "trait_ap_pelvic_fin": 0.9999890910497281,
+        "trait_ap_barbel": 0.9760913242910666,
+        "trait_ap_multiple_dorsal_fin": 0.9861689796876676,
+        "trait_mAP": 0.9871989125611746,
+        "segmentation_mIoU": 0.650188684463501
+    },
+    "test_ood": {
+        "species_accuracy_total": 0.014255543822597676,
+        "species_accuracy_per_group": {
+            "Unknown": 0.0,
+            "Ultra-Rare": 0.04411764705882353
+        },
+        "trait_ap_adipose_fin": 0.9346053156367011,
+        "trait_ap_pelvic_fin": 0.9998821579793675,
+        "trait_ap_barbel": 0.8965602671467435,
+        "trait_ap_multiple_dorsal_fin": 0.6968486944596621,
+        "trait_mAP": 0.8819741088056186,
+        "segmentation_mIoU": 0.61318039894104
+    },
+    "test_manual": {
+        "species_accuracy_total": 0.8571428571428571,
+        "species_accuracy_per_group": {
+            "Ultra-Rare": 0.6666666666666666,
+            "Minority": 1.0
+        },
+        "trait_ap_adipose_fin": 0.0,
+        "trait_ap_pelvic_fin": 0.9962659739537867,
+        "trait_ap_barbel": 0.0,
+        "trait_ap_multiple_dorsal_fin": 0.7989213564213564,
+        "trait_mAP": 0.4487968325937858,
+        "segmentation_mIoU": 0.8445266485214233
+    }
+}

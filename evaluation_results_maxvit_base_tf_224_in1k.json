@@ -1,0 +1,26 @@
+{
+    "test": {
+        "species_accuracy_total": 0.8963049853372435,
+        "species_accuracy_per_group": {
+            "Majority": 0.9555840273329063,
+            "Minority": 0.8372978116079924,
+            "Neutral": 0.8916109873793615,
+            "Ultra-Rare": 0.5269922879177378,
+            "Unknown": 0.0
+        }
+    },
+    "test_ood": {
+        "species_accuracy_total": 0.013727560718057022,
+        "species_accuracy_per_group": {
+            "Ultra-Rare": 0.042483660130718956,
+            "Unknown": 0.0
+        }
+    },
+    "test_manual": {
+        "species_accuracy_total": 0.8571428571428571,
+        "species_accuracy_per_group": {
+            "Minority": 0.9,
+            "Ultra-Rare": 0.8
+        }
+    }
+}

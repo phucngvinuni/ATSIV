@@ -1,0 +1,87 @@
+=======================================================================================================================================
+Layer (type (var_name))                                 Input Shape          Output Shape         Param #              Trainable
+=======================================================================================================================================
+MultiTaskSwinTransformer (MultiTaskSwinTransformer)     [1, 3, 224, 224]     [1, 10, 224, 224]    --                   True
+├─FeatureListNet (backbone)                             [1, 3, 224, 224]     [1, 56, 56, 128]     --                   True
+│    └─PatchEmbed (patch_embed)                         [1, 3, 224, 224]     [1, 56, 56, 128]     --                   True
+│    │    └─Conv2d (proj)                               [1, 3, 224, 224]     [1, 128, 56, 56]     6,272                True
+│    │    └─LayerNorm (norm)                            [1, 56, 56, 128]     [1, 56, 56, 128]     256                  True
+│    └─SwinTransformerStage (layers_0)                  [1, 56, 56, 128]     [1, 56, 56, 128]     --                   True
+│    │    └─Identity (downsample)                       [1, 56, 56, 128]     [1, 56, 56, 128]     --                   --
+│    │    └─Sequential (blocks)                         [1, 56, 56, 128]     [1, 56, 56, 128]     --                   True
+│    │    │    └─SwinTransformerBlock (0)               [1, 56, 56, 128]     [1, 56, 56, 128]     198,948              True
+│    │    │    └─SwinTransformerBlock (1)               [1, 56, 56, 128]     [1, 56, 56, 128]     198,948              True
+│    └─SwinTransformerStage (layers_1)                  [1, 56, 56, 128]     [1, 28, 28, 256]     --                   True
+│    │    └─PatchMerging (downsample)                   [1, 56, 56, 128]     [1, 28, 28, 256]     --                   True
+│    │    │    └─LayerNorm (norm)                       [1, 28, 28, 512]     [1, 28, 28, 512]     1,024                True
+│    │    │    └─Linear (reduction)                     [1, 28, 28, 512]     [1, 28, 28, 256]     131,072              True
+│    │    └─Sequential (blocks)                         [1, 28, 28, 256]     [1, 28, 28, 256]     --                   True
+│    │    │    └─SwinTransformerBlock (0)               [1, 28, 28, 256]     [1, 28, 28, 256]     791,112              True
+│    │    │    └─SwinTransformerBlock (1)               [1, 28, 28, 256]     [1, 28, 28, 256]     791,112              True
+│    └─SwinTransformerStage (layers_2)                  [1, 28, 28, 256]     [1, 14, 14, 512]     --                   True
+│    │    └─PatchMerging (downsample)                   [1, 28, 28, 256]     [1, 14, 14, 512]     --                   True
+│    │    │    └─LayerNorm (norm)                       [1, 14, 14, 1024]    [1, 14, 14, 1024]    2,048                True
+│    │    │    └─Linear (reduction)                     [1, 14, 14, 1024]    [1, 14, 14, 512]     524,288              True
+│    │    └─Sequential (blocks)                         [1, 14, 14, 512]     [1, 14, 14, 512]     --                   True
+│    │    │    └─SwinTransformerBlock (0)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (1)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (2)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (3)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (4)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (5)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (6)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (7)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (8)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (9)               [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (10)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (11)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (12)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (13)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (14)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (15)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (16)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    │    │    └─SwinTransformerBlock (17)              [1, 14, 14, 512]     [1, 14, 14, 512]     3,155,088            True
+│    └─SwinTransformerStage (layers_3)                  [1, 14, 14, 512]     [1, 7, 7, 1024]      --                   True
+│    │    └─PatchMerging (downsample)                   [1, 14, 14, 512]     [1, 7, 7, 1024]      --                   True
+│    │    │    └─LayerNorm (norm)                       [1, 7, 7, 2048]      [1, 7, 7, 2048]      4,096                True
+│    │    │    └─Linear (reduction)                     [1, 7, 7, 2048]      [1, 7, 7, 1024]      2,097,152            True
+│    │    └─Sequential (blocks)                         [1, 7, 7, 1024]      [1, 7, 7, 1024]      --                   True
+│    │    │    └─SwinTransformerBlock (0)               [1, 7, 7, 1024]      [1, 7, 7, 1024]      12,601,632           True
+│    │    │    └─SwinTransformerBlock (1)               [1, 7, 7, 1024]      [1, 7, 7, 1024]      12,601,632           True
+├─Linear (species_head)                                 [1, 1024]            [1, 500]             512,500              True
+├─Linear (trait_head)                                   [1, 1024]            [1, 4]               4,100                True
+├─FPNHead (seg_fpn_head)                                [1, 128, 56, 56]     [1, 1024, 56, 56]    --                   True
+│    └─ModuleList (lateral_convs)                       --                   --                   --                   True
+│    │    └─Conv2d (0)                                  [1, 128, 56, 56]     [1, 256, 56, 56]     33,024               True
+│    │    └─Conv2d (1)                                  [1, 256, 28, 28]     [1, 256, 28, 28]     65,792               True
+│    │    └─Conv2d (2)                                  [1, 512, 14, 14]     [1, 256, 14, 14]     131,328              True
+│    │    └─Conv2d (3)                                  [1, 1024, 7, 7]      [1, 256, 7, 7]       262,400              True
+│    └─ModuleList (output_convs)                        --                   --                   --                   True
+│    │    └─Sequential (0)                              [1, 256, 56, 56]     [1, 256, 56, 56]     --                   True
+│    │    │    └─Conv2d (0)                             [1, 256, 56, 56]     [1, 256, 56, 56]     589,824              True
+│    │    │    └─BatchNorm2d (1)                        [1, 256, 56, 56]     [1, 256, 56, 56]     512                  True
+│    │    │    └─ReLU (2)                               [1, 256, 56, 56]     [1, 256, 56, 56]     --                   --
+│    │    └─Sequential (1)                              [1, 256, 28, 28]     [1, 256, 28, 28]     --                   True
+│    │    │    └─Conv2d (0)                             [1, 256, 28, 28]     [1, 256, 28, 28]     589,824              True
+│    │    │    └─BatchNorm2d (1)                        [1, 256, 28, 28]     [1, 256, 28, 28]     512                  True
+│    │    │    └─ReLU (2)                               [1, 256, 28, 28]     [1, 256, 28, 28]     --                   --
+│    │    └─Sequential (2)                              [1, 256, 14, 14]     [1, 256, 14, 14]     --                   True
+│    │    │    └─Conv2d (0)                             [1, 256, 14, 14]     [1, 256, 14, 14]     589,824              True
+│    │    │    └─BatchNorm2d (1)                        [1, 256, 14, 14]     [1, 256, 14, 14]     512                  True
+│    │    │    └─ReLU (2)                               [1, 256, 14, 14]     [1, 256, 14, 14]     --                   --
+│    │    └─Sequential (3)                              [1, 256, 7, 7]       [1, 256, 7, 7]       --                   True
+│    │    │    └─Conv2d (0)                             [1, 256, 7, 7]       [1, 256, 7, 7]       589,824              True
+│    │    │    └─BatchNorm2d (1)                        [1, 256, 7, 7]       [1, 256, 7, 7]       512                  True
+│    │    │    └─ReLU (2)                               [1, 256, 7, 7]       [1, 256, 7, 7]       --                   --
+├─Conv2d (seg_classifier)                               [1, 1024, 224, 224]  [1, 10, 224, 224]    10,250               True
+=======================================================================================================================================
+Total params: 90,121,914
+Trainable params: 90,121,914
+Non-trainable params: 0
+Total mult-adds (Units.GIGABYTES): 3.34
+=======================================================================================================================================
+Input size (MB): 0.60
+Forward/backward pass size (MB): 318.22
+Params size (MB): 360.23
+Estimated Total Size (MB): 679.06
+=======================================================================================================================================
